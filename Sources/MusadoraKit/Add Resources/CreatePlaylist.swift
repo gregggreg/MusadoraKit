@@ -12,7 +12,7 @@
 
 import Foundation
 
-@available(macCatalyst 17.0, macOS 14.0, *)
+@available(macCatalyst 15.0, macOS 14.0, *)
 public extension MLibrary {
 
   /// Creates a new playlist in the user’s music library.
@@ -40,7 +40,7 @@ public extension MLibrary {
   ///   - description: An optional string describing the playlist.
   /// - Returns: A `Playlist` object representing the newly created playlist.
   /// - Throws: An error if the playlist could not be created.
-  @available(iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+  @available(iOS 16.0, tvOS 16.0, watchOS 9.0, macCatalyst 16.0, *)
   @available(macOS, unavailable)
   @available(macCatalyst, unavailable)
   static func createPlaylist(with name: String, author: String? = nil, description: String? = nil) async throws -> Playlist {
@@ -74,7 +74,7 @@ public extension MLibrary {
   ///   - items: A `Songs` object representing the songs to be added to the playlist.
   /// - Returns: A `Playlist` object representing the newly created playlist.
   /// - Throws: An error if the playlist could not be created.
-  @available(iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+  @available(iOS 16.0, tvOS 16.0, watchOS 9.0, macCatalyst 16.0, *)
   @available(macOS, unavailable)
   @available(macCatalyst, unavailable)
   static func createPlaylist(with name: String, author: String? = nil, description: String? = nil, items: Songs) async throws -> Playlist {
@@ -365,9 +365,8 @@ public extension MLibrary {
   }
 }
 
-@available(iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+@available(iOS 16.0, tvOS 16.0, watchOS 9.0, macCatalyst 16.0, *)
 @available(macOS, unavailable)
-@available(macCatalyst, unavailable)
 public extension MLibrary {
 
   /// Adds an item (or items) to a specified playlist in the user's music library.
@@ -389,7 +388,7 @@ public extension MLibrary {
   ///   - playlist: A `Playlist` object representing the playlist to which the songs should be added.
   /// - Returns: An updated `Playlist` object.
   /// - Throws: An error if the item could not be added to the playlist.
-  @available(macCatalyst 17.0, macOS 14.0, *)
+  @available(macCatalyst 16.0, macOS 14.0, *)
   @discardableResult
   static func add(item: some MusicPlaylistAddable, to playlist: Playlist) async throws -> Playlist {
     try await MusicLibrary.shared.add(item, to: playlist)
